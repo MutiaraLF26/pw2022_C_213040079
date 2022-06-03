@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+// if( !isset($_SESSION["LOGIN"]) ) {
+//     header("Location: login.php");
+//     exit;
+// }
 require 'functions.php';
 
 // ambil data di URL
@@ -14,14 +20,14 @@ if( isset($_POST["submit"])) {
         echo "
         <script>
             alert('data berhasil diubah!');
-            document.locationhref = 'Admin.php';
+            document.location.href = 'basic-table.php';
         </script>
         ";
     } else {
         echo "
         <script>
             alert('data gagal diubah!');
-            document.locationhref = 'Admin.php';
+            document.location.href = 'basic-table.php';
         </script>
         ";
     }
@@ -38,8 +44,9 @@ if( isset($_POST["submit"])) {
 <body>
     <h1>ubah data dsrama</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $drakor["id"]; ?>">
+        <input type="hidden" name="gambarLama" value="<?= $drakor["gambar"]; ?>">
         <ul>
             <li>
                 <label for="judul_drama">judul_drama</label>
@@ -66,8 +73,9 @@ if( isset($_POST["submit"])) {
                 <input type="text" name="rating_usia" id="rating_usia" value="<?= $drakor["rating_usia"]; ?>">
             </li>
             <li>
-                <label for="gambar">gambar</label>
-                <input type="text" name="gambar" id="gambar" value="<?= $drakor["gambar"]; ?>">
+                <label for="gambar">gambar</label><br>
+                <img src="../img/<?= $drakor['gambar']; ?>" width="40"><br>
+                <input type="file" name="gambar" id="gambar">
             </li>
             <li>
                 <button type="submit" name="submit">ubah Data!</button>

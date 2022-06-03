@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+// if( !isset($_SESSION["LOGIN"]) ) {
+//     header("Location: login.php");
+//     exit;
+// }
 require 'functions.php';
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"])) {
@@ -8,14 +14,14 @@ if( isset($_POST["submit"])) {
         echo "
         <script>
             alert('data berhasil ditambahkan!');
-            document.locationhref = 'Admin.php';
+            document.location.href = 'basic-table.php';
         </script>
         ";
     } else {
         echo "
         <script>
             alert('data gagal ditambahkan!');
-            document.locationhref = 'Admin.php';
+            document.location.href = 'basic-table.php';
         </script>
         ";
     }
@@ -30,9 +36,9 @@ if( isset($_POST["submit"])) {
     <title>Tambah data drama</title>
 </head>
 <body>
-    <h1>Tambah data dsrama</h1>
+    <h1>Tambah data drama</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="judul_drama">judul_drama</label>
@@ -60,7 +66,7 @@ if( isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="gambar">gambar</label>
-                <input type="text" name="gambar" id="gambar">
+                <input type="file" name="gambar" id="gambar">
             </li>
             <li>
                 <button type="submit" name="submit">Tambah Data!</button>
