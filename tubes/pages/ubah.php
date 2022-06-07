@@ -42,7 +42,7 @@ if( isset($_POST["submit"])) {
     <title>ubah data drama</title>
 </head>
 <body>
-    <h1>ubah data dsrama</h1>
+    <h1>ubah data drama</h1>
 
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $drakor["id"]; ?>">
@@ -52,10 +52,24 @@ if( isset($_POST["submit"])) {
                 <label for="judul_drama">judul_drama</label>
                 <input type="text" name="judul_drama" id="judul_drama" required value="<?= $drakor["judul_drama"]; ?>">
             </li>
-            <li>
-                <label for="genre">genre</label>
-                <input type="text" name="genre" id="genre" value="<?= $drakor["genre"]; ?>">
-            </li>
+           
+            <div class="mb-3">
+                            <label for="genre" class="form-label">genre</label>
+                            <select class="form-select" name="genre" required="" id="genre">
+                                <option disabled="" selected="">Pilih Genre</option>
+                                <option value="1"<?php if($drakor['genre'] == "1") { echo "selected";} ?>
+>Romantis</option>
+                                <option value="2" <?php if($drakor['genre'] == "2") { echo "selected";} ?>
+>komedi</option>
+                                <option value="3" <?php if($drakor['genre'] == "3") { echo "selected";} ?>
+>fantasi</option>
+
+                                <option value="4" <?php if($drakor['genre'] == "4") { echo "selected";} ?>>laga</option>
+                                <option value="5" <?php if($drakor['genre'] == "5") { echo "selected";} ?>>komedi romantis</option>
+                                <option value="6" <?php if($drakor['genre'] == "6") { echo "selected";} ?>>komedi hitam</option>
+
+                            </select>
+                        </div>
             <li>
                 <label for="sinopsis">sinopsis</label>
                 <input type="text" name="sinopsis" id="sinopsis" value="<?= $drakor["sinopsis"]; ?>">

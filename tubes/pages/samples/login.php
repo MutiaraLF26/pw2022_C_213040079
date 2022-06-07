@@ -75,7 +75,7 @@ if( isset($_POST["login"]) ) {
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
+                      <input type="checkbox" class="form-check-input" >
                       Ingat Saya!
                     </label>
                   </div>
@@ -83,7 +83,7 @@ if( isset($_POST["login"]) ) {
                 <div class="mb-2">
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Belum Punya Akun? <a href="../registrasi.php" class="text-primary">Daftar</a>
+                  Belum Punya Akun? <a href="../samples/registrasi.php" class="text-primary">Daftar</a>
                 </div>
               </form>
             </div>

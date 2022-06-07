@@ -26,7 +26,7 @@ if( isset($_POST["cari"]) ) {
   <body>
 
     <!-- Awal Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#ff0099 ;">
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:#ff0099 ;">
       <div class="container">
           <a class="navbar-brand">
               <img src="../img/logoremove.png" alt="" width="150" height="auto" class="d-inline-block">
@@ -42,11 +42,17 @@ if( isset($_POST["cari"]) ) {
                 <button type="submit" class="btn btn-light" name="cari">Cari</button>
               </form>
             <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Beranda</a>
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="registrasi.php">Registrasi</a>
+                <a class="nav-link" href="samples/registrasi.php">Registrasi</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="samples/login.php">Masuk</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#drama">Drama</a>
               </li>
             </ul>
           </div>
@@ -56,8 +62,8 @@ if( isset($_POST["cari"]) ) {
       <!-- awal carousel -->
       <!-- awal kategori -->
 
-      <div class=" mt-0 " style="background-image:url('../img/banner.jpg') ; height:300px;">
-      
+      <div class=" mt-0 " style="background-image:url('../img/banner.jpg') ; height:700px;"> 
+      <div class="bg-secondary d-inline rounded-pill p-1 ">WELCOME TO M-FLIX</div>
         <div class="row text-center row-container mt-0">
           <div class="col-lg2 col-mg-3 col-sm-4 col-6">
           </div>
@@ -108,13 +114,13 @@ if( isset($_POST["cari"]) ) {
 
       <!-- akhir kategori -->
       <!-- awal produk -->
-      <div class="container mt-5" id="section">
+      <div class="container mt-5" id="drama">
           <div class="category-title"  style="background-color: #fff; padding: 5px 10px;">
-            <h5 class="text-center" style="margin-top: 5px;">Drama</h5>
+            <h1 class="text-center" style="margin-top: 5px;">Drama</h1>
           </div>
           <div class="row">
             <?php foreach($drama as $drakor) :?>
-            <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4 mt-4">
               <div class="card text-center">
                 <img src="../img/<?= $drakor["gambar"];?>" class="card-img-top" alt="product1">
                 <div class="card-body">
@@ -143,7 +149,7 @@ if( isset($_POST["cari"]) ) {
                 <img src="../img/WhatsApp_Logo_6-removebg-preview.png" class="ms-2" style="width: 50px;">
               </a>
 
-              <a href="#">
+              <a href="https://www.instagram.com/mutiaralaelani/">
                 <img src="../img/instagram-1581266_1280-2-removebg-preview (1).png" class="ms-2" style="width: 30px;">
               </a>
             </div>

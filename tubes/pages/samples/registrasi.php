@@ -1,3 +1,18 @@
+<?php 
+require '../functions.php';
+
+if( isset($_POST["register"]) ) {
+
+    if( registrasi($_POST) > 0 ) {
+        echo "<script>
+        alert('user baru berhasil ditambahkan!');
+        </script>";
+    } else {
+        echo mysqli_error($conn);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +20,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>CelestialUI Admin</title>
+  <title>M-Flix Admin</title>
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/typicons.font/font/typicons.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
@@ -15,7 +30,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="../../img/logo.png" />
 </head>
 
 <body>
@@ -26,43 +41,36 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                <img src="../../img/logo.png" alt="logo" style="width:300px ;">
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-              <form class="pt-3">
+              <form action="" method="post" class="pt-3" autocomplete="off">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                  <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" id="username">
                 </div>
+                
+                
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
                 </div>
+
                 <div class="form-group">
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                    <option>Country</option>
-                    <option>United States of America</option>
-                    <option>United Kingdom</option>
-                    <option>India</option>
-                    <option>Germany</option>
-                    <option>Argentina</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" id="password2" placeholder="Konfirmasi Password" name="password2">
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input">
-                      I agree to all Terms & Conditions
+                      Saya setuju dengan Semua syarat dan ketentuan
                     </label>
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a>
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="register" >DAFTAR</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  Sudah Memiliki Akun? <a href="../samples/login.php" class="text-primary">Masuk</a>
                 </div>
               </form>
             </div>

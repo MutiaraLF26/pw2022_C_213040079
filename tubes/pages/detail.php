@@ -3,7 +3,7 @@
 require 'functions.php';
 // mendapatkan id produk dari url
 $id_drama = $_GET["id"];
-$drama = query("SELECT * FROM drama WHERE id = $id_drama");
+$drama = query("SELECT * FROM drama join genre on genre.id_genre = drama.genre WHERE id = $id_drama");
  
 // tombol cari ditekan
 if( isset($_POST["cari"]) ) {
@@ -42,6 +42,9 @@ if( isset($_POST["cari"]) ) {
               <li class="nav-item">
                 <a class="nav-link" href="samples/login.php">Masuk</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">beranda</a>
+              </li>
             </ul>
           </div>
       </div>
@@ -61,7 +64,7 @@ if( isset($_POST["cari"]) ) {
             <h2><?php echo $drakor["judul_drama"] ?></h2>
             <h5 class="bg-secondary d-inline rounded-pill p-1 "><?php echo $drakor["rating_usia"] ?></h5>
             <h5 class="mt-5">genre:</h5>
-            <h5 ><?php echo $drakor["genre"] ?></h5>
+            <h5 ><?php echo $drakor["nama_genre"] ?></h5>
             <h5 class="mt-5">sinopsis:</h5>
             <h5><?php echo $drakor["sinopsis"] ?></h5>
             <h5 class="mt-5">sutradara:</h5>

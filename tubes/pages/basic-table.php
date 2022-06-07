@@ -6,7 +6,7 @@ if( !isset($_SESSION["login"]) ) {
     exit;
 }
 require 'functions.php';
-$drama = query("SELECT * FROM drama");
+$drama = query("SELECT * FROM drama inner join genre on genre.id_genre = drama.genre");
 
 // tombol cari ditekan
 if( isset($_POST["cari"]) ) {
@@ -51,7 +51,10 @@ if( isset($_POST["cari"]) ) {
                 <i class="typcn typcn-power text-primary"></i>
                 Logout
                 </a>
-              
+                <a class="dropdown-item" href="index.php">
+                <i class="typcn typcn-power text-primary"></i>
+                Home
+                </a>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="typcn typcn-th-menu"></span>
@@ -93,7 +96,7 @@ if( isset($_POST["cari"]) ) {
           <li class="nav-item">
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-image">
-                <img src="../img/muti.jpg" alt="image">
+                <img src="../img/muti.jpg" alt="image" >
                 <span class="sidebar-status-indicator"></span>
               </div>
               <div class="sidebar-profile-name">
@@ -101,17 +104,17 @@ if( isset($_POST["cari"]) ) {
                   Mutiara Laelani Firdaus
                 </p>
                 <p class="sidebar-designation">
-                  Welcome
+                 Welcome
                 </p>
               </div>
             </div>
             <div class="nav-search">
               <div class="input-group">
                 <form action="" method="post">
-                <input type="text" name="keyword" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
+                <input type="text" name="keyword" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search" id="keyword">
                 <div class="input-group-append">
                   <span class="input-group-text" id="search">
-                    <button type="submit" name="cari"><i class="typcn typcn-zoom"></i></button>
+                    <button type="submit" name="cari" id="tombol-cari"><i class="typcn typcn-zoom"></i></button>
                     
                   </span>
                 </div>
@@ -154,6 +157,7 @@ if( isset($_POST["cari"]) ) {
                   <h4 class="card-title">Striped Table</h4>
                   <a href="tambah.php" class="btn btn-primary">tambah data</a>
                   <div class="table-responsive">
+                  <div id="container">
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -178,7 +182,7 @@ if( isset($_POST["cari"]) ) {
                             </td>
                             <td><img src="../img/<?= $row["gambar"]; ?>" width="100" style="border-radius: 0%; width:100px; height:auto;"></td>
                             <td><?= $row["judul_drama"] ?></td>
-                            <td><?= $row["genre"] ?></td>
+                            <td><?= $row["nama_genre"] ?></td>
                             <td class="text-center"><?= $row["sinopsis"] ?></td>
                             <td><?= $row["sutradara"] ?></td>
                             <td><?= $row["rating_usia"] ?></td>
@@ -187,6 +191,7 @@ if( isset($_POST["cari"]) ) {
                         <?php endforeach; ?>
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -228,6 +233,24 @@ if( isset($_POST["cari"]) ) {
   <!-- Custom js for this page-->
   <!-- End custom js for this page-->
   
+  <!-- <script src="../js/script.js" ></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+        $('#keyword').on("keyup", function() {
+          var search = $(this).val();
+          console.log(search)
+            $.ajax({
+                url: "../ajax/drama.php",
+                data: {
+                    keyword: search,
+                },
+                success: function(result) {
+                    $('#container').html(result);
+                }
+
+            });
+        })
+    </script>
 </body>
 
 </html>

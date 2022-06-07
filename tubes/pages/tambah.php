@@ -44,10 +44,23 @@ if( isset($_POST["submit"])) {
                 <label for="judul_drama">judul_drama</label>
                 <input type="text" name="judul_drama" id="judul_drama" required>
             </li>
-            <li>
+            <!-- <li>
                 <label for="genre">genre</label>
                 <input type="text" name="genre" id="genre">
-            </li>
+            </li> -->
+            <div class="mb-3">
+                            <label for="genre" class="form-label">genre</label>
+                            <select class="form-select" name="genre" required="" id="genre">
+                                <option disabled="" selected="">Pilih Genre</option>
+                                <option value="1">Romantis</option>
+                                <option value="2">komedi</option>
+                                <option value="3">fantasi</option>
+                                <option value="4">laga</option>
+                                <option value="5">komedi romantis</option>
+                                <option value="6">komedi hitam</option>
+
+                            </select>
+                        </div>
             <li>
                 <label for="sinopsis">sinopsis</label>
                 <input type="text" name="sinopsis" id="sinopsis">
