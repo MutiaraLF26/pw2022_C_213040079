@@ -110,15 +110,16 @@ function ubah($data) {
     if( $_FILES['gambar']['error'] === 4) {
         $gambar = $gambarLama;
     } else {
-        $gambar = upload();
-
-    }
-    
-    //upload gambar
+       //upload gambar
     $gambar = upload();
     if( !$gambar ) {
         return false;
     }
+    
+
+    }
+    
+    
     // query insert data
     $query = "UPDATE drama SET
             judul_drama = '$judul_drama',
