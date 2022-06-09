@@ -156,6 +156,7 @@ if( isset($_POST["cari"]) ) {
                 <div class="card-body">
                   <h4 class="card-title">Striped Table</h4>
                   <a href="tambah.php" class="btn btn-primary">tambah data</a>
+                  <a href="report.php" class="mb-4 btn btn-outline-success btn-sm btn-info mt-2 col-2">Cetak PDF</a>
                   <div class="table-responsive">
                   <div id="container">
                     <table class="table table-striped">

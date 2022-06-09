@@ -114,6 +114,11 @@ function ubah($data) {
 
     }
     
+    //upload gambar
+    $gambar = upload();
+    if( !$gambar ) {
+        return false;
+    }
     // query insert data
     $query = "UPDATE drama SET
             judul_drama = '$judul_drama',
